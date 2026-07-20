@@ -3,7 +3,7 @@ export const shop = {
   tagline: "All Type Home Appliance Sales & Service",
   phonePrimary: "9904070071",
   phoneSecondary: "9898340063",
-  customerCare: "95865 33005",
+  customerCare: "9904070071",
   whatsapp: "919904070071",
   email: "uniiqueappliiance@gmail.com",
   instagram: "uniiqueappliiance",

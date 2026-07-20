@@ -19,6 +19,11 @@ const login = asyncHandler(async (req, res) => {
       password,
       process.env.ADMIN2_PASSWORD_HASH,
     );
+  } else if (username === process.env.ADMIN3_USERNAME) {
+    isPasswordValid = await bcrypt.compare(
+      password,
+      process.env.ADMIN3_PASSWORD_HASH,
+    );
   } else {
     await bcrypt.compare(password, "$2b$10$abcdefghijklmnopqrstuv");
   }
@@ -38,7 +43,7 @@ const login = asyncHandler(async (req, res) => {
   res
     .status(200)
     .cookie("Token", token, options)
-    .json(new ApiResponse(200, { username }, "you logged in successfully"));
+    .json(new ApiResponse(200, { username }, "You logged in successfully"));
 });
 
 const logout = asyncHandler(async (req, res) => {
@@ -50,7 +55,7 @@ const logout = asyncHandler(async (req, res) => {
 
   res.clearCookie("Token", options);
 
-  res.status(200).json(new ApiResponse(200, {}, "you logout successfully"));
+  res.status(200).json(new ApiResponse(200, {}, "You logged out successfully"));
 });
 
 const checkAuth = asyncHandler(async (req, res) => {
